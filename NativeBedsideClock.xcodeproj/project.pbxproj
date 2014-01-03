@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3711018A18763FE800052BF1 /* DKAUserPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 3711018918763FE800052BF1 /* DKAUserPreferences.m */; };
 		37570D2B18595B61005F4BB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37570D2A18595B61005F4BB5 /* Foundation.framework */; };
 		37570D2D18595B61005F4BB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37570D2C18595B61005F4BB5 /* CoreGraphics.framework */; };
 		37570D2F18595B61005F4BB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37570D2E18595B61005F4BB5 /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3711018818763FE700052BF1 /* DKAUserPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKAUserPreferences.h; sourceTree = "<group>"; };
+		3711018918763FE800052BF1 /* DKAUserPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKAUserPreferences.m; sourceTree = "<group>"; };
 		37570D2718595B61005F4BB5 /* NativeBedsideClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeBedsideClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37570D2A18595B61005F4BB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37570D2C18595B61005F4BB5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +129,8 @@
 				37570D5F185A983F005F4BB5 /* DKAFontTableViewController.m */,
 				37B96047186FC957001C69A2 /* DKAPrefencesViewController.h */,
 				37B96048186FC957001C69A2 /* DKAPrefencesViewController.m */,
+				3711018818763FE700052BF1 /* DKAUserPreferences.h */,
+				3711018918763FE800052BF1 /* DKAUserPreferences.m */,
 				37570D3C18595B61005F4BB5 /* Images.xcassets */,
 				37570D5918595CD1005F4BB5 /* Main.storyboard */,
 				37570D3118595B61005F4BB5 /* Supporting Files */,
@@ -260,6 +265,7 @@
 			files = (
 				37B96049186FC957001C69A2 /* DKAPrefencesViewController.m in Sources */,
 				37570D3718595B61005F4BB5 /* main.m in Sources */,
+				3711018A18763FE800052BF1 /* DKAUserPreferences.m in Sources */,
 				37570D60185A983F005F4BB5 /* DKAFontTableViewController.m in Sources */,
 				37570D5D185963F8005F4BB5 /* DKAClockUiViewController.m in Sources */,
 				37570D3B18595B61005F4BB5 /* DKAAppDelegate.m in Sources */,

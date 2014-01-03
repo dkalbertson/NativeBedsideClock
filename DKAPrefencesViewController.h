@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKAUserPreferences;
 
 @interface DKAPrefencesViewController : UITableViewController
 
@@ -19,12 +20,8 @@
 
 @property (weak, nonatomic) IBOutlet UISwitch *secondsSwitch;
 
-@property  NSString* fontColorString;
+@property (weak, nonatomic) IBOutlet UISlider *brightnessSlider;
 
-@property  NSString* fontNameString;
-
-@property bool showTwentyFourHour;
-
-@property bool showSeconds;
+@property DKAUserPreferences *userPrefs;
 
 @end

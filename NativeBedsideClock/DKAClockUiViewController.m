@@ -6,8 +6,10 @@
 //
 //
 
+#import "DKAUserPreferences.h"
 #import "DKAClockUiViewController.h"
 #import "DKAPrefencesViewController.h"
+
 
 @interface DKAClockUiViewController ()
 
@@ -24,26 +26,40 @@
     return self;
 }
 
+//*********************************************************************************************************************
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.dateFormatter = [[NSDateFormatter alloc] init];
-    [self.dateFormatter setDateFormat:@"hh:mm:ss a"];
     
-    self.showSeconds = true;
-    self.showTwentyFourHour = false;
-    self.fontNameString = self.timeLabel.font.fontName;
+    NSData *data    = [[NSUserDefaults standardUserDefaults] objectForKey:kUserPreferencesObjectKey];
+    self.userPrefs  = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    
+    if (self.userPrefs == nil)
+    {
+        self.userPrefs =[[DKAUserPreferences alloc] initWithFontColor:@"White" andFontName:[self.timeLabel.font fontName] andShowTwentyFourHour:false andShowSeconds:true andBrightness:1.0];
+    }
+    
+    self.timeLabel.font = [UIFont fontWithName:self.userPrefs.fontNameString size:self.timeLabel.font.pointSize];
+    
+    [self formatTimeString];
     
     [self updateTime];
 }
+
+//*********************************************************************************************************************
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//*********************************************************************************************************************
 
 -(void)updateTime
 {
@@ -54,13 +70,24 @@
     
 }
 
+//*********************************************************************************************************************
+
 - (IBAction)unwindToClock:(UIStoryboardSegue *)segue
 {
-    self.timeLabel.font = [UIFont fontWithName:self.fontNameString size:self.timeLabel.font.pointSize];
+    self.timeLabel.font = [UIFont fontWithName:self.userPrefs.fontNameString size:self.timeLabel.font.pointSize];
     
-    if (self.showTwentyFourHour)
+    [self formatTimeString];
+    
+    [self updateTime];
+}
+
+//*********************************************************************************************************************
+
+-(void)formatTimeString
+{
+    if (self.userPrefs.showTwentyFourHour)
     {
-        if (self.showSeconds)
+        if (self.userPrefs.showSeconds)
         {
             [self.dateFormatter setDateFormat:@"HH:mm:ss"];
         }
@@ -71,7 +98,7 @@
     }
     else
     {
-        if (self.showSeconds)
+        if (self.userPrefs.showSeconds)
         {
             [self.dateFormatter setDateFormat:@"hh:mm:ss a"];
         }
@@ -80,9 +107,10 @@
             [self.dateFormatter setDateFormat:@"hh:mm a"];
         }
     }
-    
-    [self updateTime];
+
 }
+
+//*********************************************************************************************************************
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -90,19 +118,8 @@
     {
         DKAPrefencesViewController* dest = [segue destinationViewController];
         
-        dest.fontNameString = self.fontNameString;
-        dest.showTwentyFourHour = self.showTwentyFourHour;
-        dest.showSeconds = self.showSeconds;
+        dest.userPrefs = self.userPrefs;
     }
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-    return YES;
-}
-
--(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [self.timeLabel setCenter:self.view.center];
-}
 @end

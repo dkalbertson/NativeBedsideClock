@@ -215,6 +215,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="brightnessSlider" destination="88X-GJ-5ek" id="yH5-ic-BBK"/>
                         <outlet property="fontColor" destination="gBz-bt-KjN" id="lJ8-q9-fCu"/>
                         <outlet property="fontName" destination="j4D-qK-rkw" id="Y6L-hz-aDv"/>
                         <outlet property="secondsSwitch" destination="cQB-4H-F6g" id="c1H-b7-AC8"/>

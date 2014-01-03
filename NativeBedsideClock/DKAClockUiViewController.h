@@ -8,17 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class DKAUserPreferences;
+
 @interface DKAClockUiViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @property NSDateFormatter *dateFormatter;
-
-@property  NSString* fontColorString;
-
-@property  NSString* fontNameString;
-
-@property bool showTwentyFourHour;
-
-@property bool showSeconds;
+@property DKAUserPreferences *userPrefs;
 
 @end
